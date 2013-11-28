@@ -708,7 +708,7 @@ class MigrationShell extends AppShell {
  */
 	protected function _writeMigration($name, $version, $migration) {
 		$content = '';
-		$content = $this->_generateMigration($name, Inflector::camelize($name), $migration);
+		$content = $this->_generateMigration($name, Inflector::camelize($name . $version), $migration);
 		$File = new File($this->path . $version . '_' . strtolower($name) . '.php', true);
 		return $File->write($content);
 	}
